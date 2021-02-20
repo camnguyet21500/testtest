@@ -105,7 +105,7 @@
                             <tbody>
                                 <c:forEach var="i" items="${giohang}">
                                     <tr>
-                                        <td>${i.getSanpham().getMaSP()}</td>
+                                        <td id="productCode${i.getSanpham().getMaSP()}">${i.getSanpham().getMaSP()}</td>
                                         <td>${i.getSanpham().getTenSP()}</td>
                                         <td><img src="images/${i.getSanpham().getHinh()}" width="80px;" height="100px;" /></td>
                                         <td>${i.getSanpham().getDonGia()}</td>

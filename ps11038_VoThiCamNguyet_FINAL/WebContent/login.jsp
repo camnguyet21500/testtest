@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Login</title>
 
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <script src="js/jquery-3.3.1.slim.min.js" ></script>
@@ -54,7 +54,7 @@
                             <div class="valid-feedback">Valid.</div>
                             <div class="invalid-feedback">Please fill out this field.</div>
                         </div>
-                        <button type="submit" class="btn btn-warning">Submit</button>
+                        <button type="submit" id="login" class="btn btn-warning">Submit</button>
                     </form>
                 </div>
             </center>

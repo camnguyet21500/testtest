@@ -97,16 +97,16 @@
                             <c:forEach items="<%= listSP%>" var="sp">
                                 <tr>
                                     <td><input type="checkbox" name="chon" value="${sp.getMaSP()}" /> </td>
-                                    <td>${sp.getMaSP()}</td>
+                                    <td class="idProduct" id="productCode${sp.getMaSP()}">${sp.getMaSP()}</td>
                                     <td>${sp.getTenSP()}</td>
                                     <td>${sp.getDonGia()}</td>
                                     <td>${sp.getSoLuong()}</td>
                                     <td><img class="rounded" src="images/${sp.getHinh()}" width="100px" height="150px"></td>
                                     <td>${sp.getMaDM()}</td>
 
-                                    <td><a class="btn btn-warning" href="DeleteSPServlet?yeucau=delete&txtmasp=${sp.getMaSP()}">Delete</a></td>
+                                    <td><a class="btn btn-warning" id="delete${sp.getMaSP()}" href="DeleteSPServlet?yeucau=delete&txtmasp=${sp.getMaSP()}">Delete</a></td>
                                     <td><a class="btn btn-warning" href="SanPhamServlet2?yeucau=laythongtin&txtmasp=${sp.getMaSP()}">Update</a></td>
-                                    <td><a class="btn btn-warning" href="GioHangServlet?yeucau=muasp&txtmasp=${sp.getMaSP()}">Buy Now</a></td>
+                                    <td><a class="btn btn-warning" id="buynow${sp.getMaSP()}" href="GioHangServlet?yeucau=muasp&txtmasp=${sp.getMaSP()}">Buy Now</a></td>
 
                                 </tr>
                             </c:forEach>

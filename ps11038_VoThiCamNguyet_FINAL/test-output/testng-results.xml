@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-02-20T23:18:09 ICT" name="Default suite" finished-at="2021-02-20T23:18:15 ICT" duration-ms="6699">
+    <groups>
+    </groups>
+    <test started-at="2021-02-20T23:18:09 ICT" name="Default test" finished-at="2021-02-20T23:18:15 ICT" duration-ms="6699">
+      <class name="test.TestNG.TestNG_DeleteProduct">
+        <test-method is-config="true" signature="launchBrowser()[pri:0, instance:test.TestNG.TestNG_DeleteProduct@5f683daf]" started-at="2021-02-20T23:18:09 ICT" name="launchBrowser" finished-at="2021-02-20T23:18:14 ICT" duration-ms="4987" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method signature="testDeleteProduct()[pri:0, instance:test.TestNG.TestNG_DeleteProduct@5f683daf]" started-at="2021-02-20T23:18:14 ICT" name="testDeleteProduct" finished-at="2021-02-20T23:18:15 ICT" duration-ms="1570" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDeleteProduct -->
+        <test-method is-config="true" signature="terminateBrowser()[pri:0, instance:test.TestNG.TestNG_DeleteProduct@5f683daf]" started-at="2021-02-20T23:18:15 ICT" name="terminateBrowser" finished-at="2021-02-20T23:18:15 ICT" duration-ms="104" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- terminateBrowser -->
+      </class> <!-- test.TestNG.TestNG_DeleteProduct -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
 encoding//src/controller/UpdateSPServlet.java=UTF-8
 encoding//src/model/SanPhamModel.java=UTF-8
+encoding//src/test/TestNG/TestNG_AddProductInCart.java=UTF-8
+encoding//src/test/TestNG/TestNG_Login.java=UTF-8
