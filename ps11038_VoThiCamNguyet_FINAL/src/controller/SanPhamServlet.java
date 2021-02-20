@@ -52,8 +52,6 @@ public class SanPhamServlet extends HttpServlet {
             String tenhinh = new UploadModel().getTenFile(filehinh);
             int maDM = Integer.parseInt(request.getParameter("ddlDanhMuc"));
 
-            
-
             String page = "";
             String message = "";
             HttpSession session = request.getSession();
@@ -65,12 +63,12 @@ public class SanPhamServlet extends HttpServlet {
                 String uploadRootPath = request.getServletContext().getRealPath("/images");
                 boolean kqupload= new UploadModel().uploadFile(tenhinh, filehinh, uploadRootPath);
                 
-                if (kqupload == false)
-                {
-                    message = "upload thất bại. ";
-                    page = "Error.jsp";
-                    return; // kết thúc.
-                }
+//                if (kqupload == false)
+//                {
+//                    message = "upload thất bại. ";
+//                    page = "Error.jsp";
+//                    return; // kết thúc.
+//                }
                 
                 int kq = sp_model.insertSanPham(sp);
                 if (kq == 1) {

@@ -52,7 +52,9 @@ public class SanPham {
     }
 
     public void setDonGia(int donGia) {
-        this.donGia = donGia;
+        if(donGia > 0) {
+        	this.donGia = donGia;
+        }
     }
 
     public int getSoLuong() {
@@ -60,7 +62,9 @@ public class SanPham {
     }
 
     public void setSoLuong(int soLuong) {
-        this.soLuong = soLuong;
+        if(soLuong > 0) {
+        	this.soLuong = soLuong;
+        }
     }
 
     public String getHinh() {
