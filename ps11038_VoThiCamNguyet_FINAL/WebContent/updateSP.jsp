@@ -98,7 +98,7 @@
                             SanPham sanpham = (SanPham) request.getAttribute("sanpham");
                         %>
                         <h2>Update Product</h2>
-                        <form enctype="multipart/form-data" action="UpdateSPServlet" method="post" >
+                        <form action="UpdateSPServlet" method="post" enctype="multipart/form-data" >
                             <div class="form-group">
                                 <label for="email">Product code</label>
                                 <input type="text" class="form-control" name="txtmasp" value="${sanpham.getMaSP()}" readonly>

@@ -6,6 +6,7 @@ import entities.SanPham;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,13 +18,32 @@ import model.SanPhamModel;
 import model.UploadModel;
 
 @WebServlet(name = "SanPhamServlet", urlPatterns = {"/SanPhamServlet"})
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 1,  // 10 KB
+        maxFileSize = 11024 * 1024 * 10,       // 300 KB
+        maxRequestSize = 1024 * 1024 * 100    // 1 MB 
+)
 public class SanPhamServlet extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	
+        //processRequest(request, response);
+        
         response.setContentType("text/html;charset=UTF-8");
+        
         try (PrintWriter out = response.getWriter()) {
             
+        	String yeucau = request.getParameter("yeucau");
             String tensp = request.getParameter("txttensp");
             int donggia = Integer.parseInt(request.getParameter("txtdongia"));
             int soluong = Integer.parseInt(request.getParameter("txtsoluong"));
@@ -32,7 +52,7 @@ public class SanPhamServlet extends HttpServlet {
             String tenhinh = new UploadModel().getTenFile(filehinh);
             int maDM = Integer.parseInt(request.getParameter("ddlDanhMuc"));
 
-            String yeucau = request.getParameter("yeucau");
+            
 
             String page = "";
             String message = "";
@@ -72,37 +92,7 @@ public class SanPhamServlet extends HttpServlet {
                 page = "updateSP.jsp";
             }
             request.getRequestDispatcher(page).forward(request, response);
-
         }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
     }
 
     /**

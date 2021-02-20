@@ -9,6 +9,7 @@ import entities.SanPham;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,15 +24,32 @@ import model.UploadModel;
  * @author home
  */
 @WebServlet(name = "UpdateSPServlet", urlPatterns = {"/UpdateSPServlet"})
+@MultipartConfig(
+        fileSizeThreshold = 1024 * 1024 * 1,  // 10 KB
+        maxFileSize = 11024 * 1024 * 10,       // 300 KB
+        maxRequestSize = 1024 * 1024 * 100    // 1 MB 
+)
 public class UpdateSPServlet extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+   
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	
         response.setContentType("text/html;charset=UTF-8");
+        
         try (PrintWriter out = response.getWriter()) {
-            
-            int masp = Integer.parseInt(request.getParameter("txtmasp"));
-            String tensp = request.getParameter("txttensp");
+        	
+        	String tensp = request.getParameter("txttensp");
+            int masp = Integer.parseInt(request.getParameter("txtmasp"));          
             int donggia = Integer.parseInt(request.getParameter("txtdongia"));
             int soluong = Integer.parseInt(request.getParameter("txtsoluong"));
 
@@ -50,17 +68,17 @@ public class UpdateSPServlet extends HttpServlet {
                 out.println(tenhinh);
 
             } else {
-                //người dùng chọn hình mới
-                // upload hinh mới lên server
+                //ngÆ°á»�i dÃ¹ng chá»�n hÃ¬nh má»›i
+                // upload hinh má»›i lÃªn server
                 String uploadRootPath = request.getServletContext().getRealPath("/images");
                 boolean kqupload = new UploadModel().uploadFile(tenhinh, filehinh, uploadRootPath);
 
                 if (kqupload == false) {
-                    message = "upload thất bại. ";
+                    message = "upload tháº¥t báº¡i. ";
                     page = "Error.jsp";
                     request.setAttribute("thongbao", message);
                     request.getRequestDispatcher(page).forward(request, response);
-                    return; // kết thúc.
+                    return; // káº¿t thÃºc.
                 }
             }
 
@@ -70,10 +88,10 @@ public class UpdateSPServlet extends HttpServlet {
             if (kq == 1) {
                 page = "showSanPham.jsp";
             } else if (kq == 0) {
-                message = "Update thất bại.";
+                message = "Update tháº¥t báº¡i.";
                 page = "Error.jsp";
             } else if (kq == -1) {
-                message = "Kết nối database thất bại.";
+                message = "Káº¿t ná»‘i database tháº¥t báº¡i.";
                 page = "Error.jsp";
             }
 
@@ -81,35 +99,6 @@ public class UpdateSPServlet extends HttpServlet {
             request.getRequestDispatcher(page).forward(request, response);
 
         }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
     }
 
     /**

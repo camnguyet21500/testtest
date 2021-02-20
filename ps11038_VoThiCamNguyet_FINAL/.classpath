@@ -16,5 +16,7 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="D:/#Software_Java/Software/lib-java/commons-fileupload-1.4.jar"/>
+	<classpathentry kind="lib" path="D:/#Software_Java/Software/lib-java/commons-io-2.4.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
